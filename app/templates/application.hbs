@@ -1,5 +1,41 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{#if showAlert}}
+  <div class='alert' style="color: red">
+    Please fix all the errors below before continuing.
+
+    <button class='fa fa-times icon-remove' {{action 'togglePropertyAction' 'showAlert'}}>X</button>
+  </div>
+{{/if}}
+
+
+{{#if isValid}}
+  <span class='valid-input fa fa-check'>5555</span>
+{{/if}}
+
+
+
+<h5>Person</h5>
+
+{{form-element model=model valuePath='username' placeholder='Username' didValidate=didValidate}}
+{{form-element type='password' model=model valuePath='password' placeholder='Password' didValidate=didValidate}}
+{{form-element model=model valuePath='email' placeholder='Email' didValidate=didValidate data-test-email=''}}
+{{form-element model=model valuePath='emailConfirmation' placeholder='Verify Email' didValidate=didValidate}}
+
+<h5>Person Details</h5>
+
+{{form-element model=model.details valuePath='firstName' placeholder='First Name' didValidate=didValidate}}
+{{form-element model=model.details valuePath='lastName' placeholder='Last Name' didValidate=didValidate}}
+{{form-element model=model.details valuePath='dob' placeholder='B.Date(mm/dd/yyyy)' didValidate=didValidate}}
+{{form-element model=model.details valuePath='phone' placeholder='Phone #' didValidate=didValidate}}
+{{form-element model=model.details valuePath='url' placeholder='URL' didValidate=didValidate}}
+
+
+
+
+<button  {{action 'validate'}}>Register</button>
+<button {{action 'reset'}}>Reset</button>
+
+
+
+
 
 {{outlet}}

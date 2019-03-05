@@ -30,6 +30,19 @@
 
 
 
+{{!--
+<hr>
+<input type="text"
+       value={{readonly model.username}}
+       oninput={{action (mut reasoan) value="target.value"}}
+       placeholder="Username">
+
+
+{{#each model.error.username as |error|}}
+  {{error.message}}
+{{/each}}
+
+--}}
 
 <button  {{action 'validate'}}>Register</button>
 <button {{action 'reset'}}>Reset</button>

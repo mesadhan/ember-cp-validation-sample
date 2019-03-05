@@ -4,6 +4,7 @@ export default Controller.extend({
   showAlert: false,
   isRegistered: false,
   didValidate: false,
+  reasoan: '',
 
   actions: {
     validate() {
